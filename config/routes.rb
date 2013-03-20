@@ -14,4 +14,5 @@ MusiciansCommunity::Application.routes.draw do
     resources :comments
   end
 
+  resources :instruments
 end

@@ -1,0 +1,19 @@
+<h1>Instruments</h1>
+
+<table>
+<thead>
+	<th>Instrument</th>
+	<th>Skill Level</th>
+	<th></th>
+	<th></th>
+	<th></th>
+</thead>
+<% @instruments.each do |instrument| %>
+	<tr>
+		<td><%= instrument.type %></td>
+		<td><%= instrument.level %></td>
+		<td><%= link_to 'Show', instrument %></td>
+    <td><%= link_to 'Edit', edit_instrument_path(instrument) %></td>
+    <td><%= link_to 'Destroy', instrument, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<% end %>
+</table>
