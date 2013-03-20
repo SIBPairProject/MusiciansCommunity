@@ -1,0 +1,2 @@
+class UserVideosController < ApplicationController
+end
