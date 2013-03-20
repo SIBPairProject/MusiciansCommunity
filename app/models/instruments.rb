@@ -1,6 +1,5 @@
 class Instruments < ActiveRecord::Base
-  # attr_accessible :title, :body
-  attr_accessible :type, :level
+  attr_accessible :level, :type
 
   belongs_to :users
 end

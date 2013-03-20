@@ -1,6 +1,5 @@
 class Users < ActiveRecord::Base
-  # attr_accessible :title, :body
-  attr_accessible :name, :email, :password, :about
+  attr_accessible :about, :email, :name, :password
 
   has_many :instruments, :comments
 end
