@@ -1,0 +1,5 @@
+<%= simple_form_for @instrument do |f| %>
+	<%= f.select :type, collection: [:guitar, :other] %>
+	<%= f.select :level, collection: [:beginner, :intermediate, :advanced] %>
+	<%= f.button :submit %>
+<% end %>
