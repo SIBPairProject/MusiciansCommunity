@@ -1,4 +1,4 @@
-class UserVideos < ActiveRecord::Base
+class UserVideo < ActiveRecord::Base
   attr_accessible :description, :title, :video_embed
 
   belongs_to :users
