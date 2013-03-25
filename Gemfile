@@ -8,6 +8,7 @@ gem 'rails', '3.2.12'
 gem 'sqlite3'
 gem "twitter-bootstrap-rails"
 gem 'simple_form'
+gem 'devise'
 gem 'therubyracer'
 
 # Gems used only for assets and not required

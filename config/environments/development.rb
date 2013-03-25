@@ -34,4 +34,12 @@ MusiciansCommunity::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  # Devise setup (for prod--> set to actual host) 
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
+  # if deploying on heroku, add the following for Devise
+  # "config.assets.initialize_on_precompile = false"
+
+
 end
