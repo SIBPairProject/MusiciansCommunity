@@ -1,4 +1,5 @@
 MusiciansCommunity::Application.routes.draw do
+
   resources :users do
     resources :comments
     resources :instruments
@@ -14,5 +15,4 @@ MusiciansCommunity::Application.routes.draw do
     resources :comments
   end
 
-  resources :instruments
 end

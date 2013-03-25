@@ -4,7 +4,7 @@ class InstrumentsController < ApplicationController
 	end
 
 	def show
-		@instruments = Instrument.find(params[:id])
+		@instrument = Instrument.find(params[:id])
 	end
 
 	def new
@@ -16,7 +16,8 @@ class InstrumentsController < ApplicationController
 	end
 
 	def create
-		@instrument = Instrument.new(params[:instruments])
+		@instrument = Instrument.new(params[:instrument])
+
 		if @instrument.save
 			redirect_to @instruments
 		else
@@ -27,15 +28,15 @@ class InstrumentsController < ApplicationController
 	def update
 		@instrument = Instrument.find(params[:id])
 		if @instrument.update_attributes(params[:instrument])
-			redirect_to(@instruments)
+			redirect_to @instruments
 		else
 			render :edit
 		end
 	end
 
 	def destroy
-		@instruments = Instrument.find(params[:id])
-		@instruments.destroy
+		@instrument = Instrument.find(params[:id])
+		@instrument.destroy
 
 		redirect_to instruments_url
 	end
