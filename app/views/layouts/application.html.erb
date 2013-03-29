@@ -7,10 +7,24 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
 
+<div class="navbar">
+  <div class="navbar-inner">
+    <a class="brand" href="#">MC</a>
+    <ul class="nav">
+      <li><a href="#">Dashboard</a></li>
+      <li><a href="#">SignUp</a></li>
+      <li><a href="#">Tunes</a></li>
+    </ul>
+  </div>
+</div>
 
+<% if notice %>
+  <p id="notice"><%= notice %></p>
+<% end %>
+<% if alert %>
+  <p class="alert"><%= alert %></p>
+<% end %>
 
 <%= yield %>
 
