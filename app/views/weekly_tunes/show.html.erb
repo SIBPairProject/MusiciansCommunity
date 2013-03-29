@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @weekly_tune.title %>
+</p>
+
+<p>
+  <b>Genre:</b>
+  <%= @weekly_tune.genre %>
+</p>
+
+<p>
+  <b>Artist:</b>
+  <%= @weekly_tune.artist %>
+</p>
+
+<p>
+  <b>Date from:</b>
+  <%= @weekly_tune.date_from %>
+</p>
+
+<p>
+  <b>Date to:</b>
+  <%= @weekly_tune.date_to %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @u %>
+</p>
+
+<iframe width="425" height="349" src="<%= @u %>" frameborder="0" allowfullscreen>
+</iframe>
+<%= link_to 'Edit', edit_weekly_tune_path(@weekly_tune) %> |
+<%= link_to 'Back', weekly_tunes_path %>

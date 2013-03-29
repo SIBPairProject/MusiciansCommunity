@@ -1,0 +1,41 @@
+<%= form_for(@weekly_tune) do |f| %>
+  <% if @weekly_tune.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@weekly_tune.errors.count, "error") %> prohibited this weekly_tune from being saved:</h2>
+
+      <ul>
+      <% @weekly_tune.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :genre %><br />
+    <%= f.text_field :genre %>
+  </div>
+  <div class="field">
+    <%= f.label :artist %><br />
+    <%= f.text_field :artist %>
+  </div>
+  <div class="field">
+    <%= f.label :date_from %><br />
+    <%= f.date_select :date_from %>
+  </div>
+  <div class="field">
+    <%= f.label :date_to %><br />
+    <%= f.date_select :date_to %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

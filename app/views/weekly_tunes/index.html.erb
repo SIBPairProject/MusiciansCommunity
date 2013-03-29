@@ -1,0 +1,33 @@
+<h1>Listing weekly_tunes</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Genre</th>
+    <th>Artist</th>
+    <th>Date from</th>
+    <th>Date to</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @weekly_tunes.each do |weekly_tune| %>
+  <tr>
+    <td><%= weekly_tune.title %></td>
+    <td><%= weekly_tune.genre %></td>
+    <td><%= weekly_tune.artist %></td>
+    <td><%= weekly_tune.date_from %></td>
+    <td><%= weekly_tune.date_to %></td>
+    <td><%= weekly_tune.description %></td>
+    <td><%= link_to 'Show', weekly_tune %></td>
+    <td><%= link_to 'Edit', edit_weekly_tune_path(weekly_tune) %></td>
+    <td><%= link_to 'Destroy', weekly_tune, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Weekly tune', new_weekly_tune_path %>
