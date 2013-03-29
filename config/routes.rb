@@ -1,4 +1,8 @@
 MusiciansCommunity::Application.routes.draw do
+  get "user/show"
+  get "user/index"
+  get "user/dashboard"
+
   devise_for :users
 
   # resources :users do
