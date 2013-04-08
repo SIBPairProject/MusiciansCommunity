@@ -13,8 +13,9 @@ class UserVideosController < ApplicationController
   # GET /videos/1.json
   def show
     @user_video = current_user.user_videos.find(params[:id])    
-    @uri = URI(@user_video.video_embed)
-    @u = "http://www.youtube.com/embed/" + @uri.path.to_s
+    # @uri = URI(@user_video.video_embed)
+    @vid_id = @user_video.video_embed.split('?v=')[1]
+    @u = "http://www.youtube.com/embed/" + @vid_id
 
     respond_to do |format|
       format.html # show.html.erb
@@ -60,7 +61,7 @@ class UserVideosController < ApplicationController
     @user_video = current_user.user_videos.find(params[:id])
 
     respond_to do |format|
-      if @user_video.update_attributes(params[:video])
+      if @user_video.update_attributes(params[:user_video])
         format.html { redirect_to @user_video, notice: 'Task was successfully updated.' }
         format.json { head :no_content }
       else

@@ -1,5 +1,10 @@
 <p><%= @current_user.name%>'s Dashboard</p>
 
-<% @videos.each do |video| %>
-	<%= video %>
+
+<ul>
+<% @user_videos.each do |video| %>
+  <li>
+    <%= link_to video.title, "../user_videos/"+video.id.to_s %>
+  </li>
 <% end %>
+</ul>
