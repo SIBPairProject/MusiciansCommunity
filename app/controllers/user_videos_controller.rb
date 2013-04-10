@@ -46,7 +46,7 @@ class UserVideosController < ApplicationController
 
     respond_to do |format|
       if @user_video.save
-        format.html { redirect_to @user_video, notice: 'Task was successfully created.' }
+        format.html { redirect_to @user_video, notice: 'Video was successfully created.' }
         format.json { render json: @user_video, status: :created, location: @user_video }
       else
         format.html { render action: "new" }
@@ -62,7 +62,7 @@ class UserVideosController < ApplicationController
 
     respond_to do |format|
       if @user_video.update_attributes(params[:user_video])
-        format.html { redirect_to @user_video, notice: 'Task was successfully updated.' }
+        format.html { redirect_to @user_video, notice: 'Video was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
