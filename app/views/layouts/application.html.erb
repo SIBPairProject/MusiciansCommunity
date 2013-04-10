@@ -5,28 +5,52 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <script src="../js/bsa.js"></script>
 </head>
 <body>
 
 <div class="navbar">
   <div class="navbar-inner">
-    <a class="brand" href="#">MC</a>
     <ul class="nav">
-      <li><a href="#">Dashboard</a></li>
-      <li><a href="#">SignUp</a></li>
-      <li><a href="#">Tunes</a></li>
+      <li><%= link_to 'TuneUp', :controller => '/user', :action => 'dashboard'%></li>
+    </ul>
+
+    <ul class="nav pull-right">
+      <% if current_user %>
+        <li><%= link_to('SignOut', '/users/sign_out') %></li>
+      <% else %>
+        <li><%= link_to('SignUp', '/users/sign_up') %></li>
+        <li><%= link_to('LogIn', '/users/sign_in') %></li>
+      <% end %>
     </ul>
   </div>
 </div>
 
-<% if notice %>
-  <p id="notice"><%= notice %></p>
-<% end %>
-<% if alert %>
-  <p class="alert"><%= alert %></p>
-<% end %>
 
-<%= yield %>
 
+<div class="content">
+  <div class="span10">
+      <% if notice %>
+        <p id="notice"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert"><%= alert %></p>
+      <% end %>
+
+      <%= yield %>
+  </div>
+
+  <div class="span4">
+    <div class="well">
+      <ul class="nav nav-list">
+        <li><%=  link_to "Tunes", :controller => '/weekly_tunes', :action => 'index' %></li>
+        <li><%=  link_to "MyVideos", :controller => '/user_videos', :action => 'index' %></li>
+        <li><%=  link_to "MyProgress", :controller => '/user', :action => 'show' %></li>
+      </ul>
+    </div>
+  </div>
+
+
+</div>
 </body>
 </html>

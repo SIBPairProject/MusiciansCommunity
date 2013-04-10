@@ -11,3 +11,19 @@
  *= require_self
  *= require_tree .
  */
+
+.content{
+	min-height: 600px;
+}
+
+.list-item{
+	border-top: 1px solid #cccccc;
+	margin: 10px 0px;
+	padding: 10px 0px;
+}
+
+
+.navbar img{ 
+	height: 30px;
+	width:  auto;
+}

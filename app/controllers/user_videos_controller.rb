@@ -1,53 +1,56 @@
 class UserVideosController < ApplicationController
 
    def index
-    @videos = current_user.user_videos.all
+    @user_videos = current_user.user_videos.all
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @videos }
+      format.json { render json: @user_videos }
     end
   end
 
   # GET /videos/1
   # GET /videos/1.json
   def show
-    @video = current_user.user_videos.find(params[:id])
+    @user_video = current_user.user_videos.find(params[:id])    
+    # @uri = URI(@user_video.video_embed)
+    @vid_id = @user_video.video_embed.split('?v=')[1]
+    @u = "http://www.youtube.com/embed/" + @vid_id
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @video }
+      format.json { render json: @user_video }
     end
   end
 
   # GET /videos/new
   # GET /videos/new.json
   def new
-    @video = current_user.user_videos.new
+    @user_video = current_user.user_videos.new
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @video }
+      format.json { render json: @user_video }
     end
   end
 
   # GET /videos/1/edit
   def edit
-    @video = current_user.user_videos.find(params[:id])
+    @user_video = current_user.user_videos.find(params[:id])
   end
 
   # POST /videos
   # POST /videos.json
   def create
-    @video = current_user.user_videos.new(params[:video])
+    @user_video = current_user.user_videos.new(params[:user_video])
 
     respond_to do |format|
-      if @video.save
-        format.html { redirect_to @video, notice: 'Task was successfully created.' }
-        format.json { render json: @video, status: :created, location: @video }
+      if @user_video.save
+        format.html { redirect_to @user_video, notice: 'Video was successfully created.' }
+        format.json { render json: @user_video, status: :created, location: @user_video }
       else
         format.html { render action: "new" }
-        format.json { render json: @video.errors, status: :unprocessable_entity }
+        format.json { render json: @user_video.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -55,15 +58,15 @@ class UserVideosController < ApplicationController
   # PUT /videos/1
   # PUT /videos/1.json
   def update
-    @video = current_user.user_videos.find(params[:id])
+    @user_video = current_user.user_videos.find(params[:id])
 
     respond_to do |format|
-      if @video.update_attributes(params[:video])
-        format.html { redirect_to @video, notice: 'Task was successfully updated.' }
+      if @user_video.update_attributes(params[:user_video])
+        format.html { redirect_to @user_video, notice: 'Video was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
-        format.json { render json: @video.errors, status: :unprocessable_entity }
+        format.json { render json: @user_video.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -71,11 +74,11 @@ class UserVideosController < ApplicationController
   # DELETE /videos/1
   # DELETE /videos/1.json
   def destroy
-    @video = current_user.user_videos.find(params[:id])
-    @video.destroy
+    @user_video = current_user.user_videos.find(params[:id])
+    @user_video.destroy
 
     respond_to do |format|
-      format.html { redirect_to videos_url }
+      format.html { redirect_to user_videos_url }
       format.json { head :no_content }
     end
   end
