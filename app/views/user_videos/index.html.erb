@@ -1,3 +1,4 @@
+
 <h1>My Videos</h1>
 <%= link_to 'Submit a new video', new_user_video_path %>
 
@@ -8,4 +9,3 @@
     <p><%= link_to 'View', user_video %> | <%= link_to 'Edit', edit_user_video_path(user_video) %> | <%= link_to 'Delete', user_video, method: :delete, data: { confirm: 'Are you sure?' } %></p>
   </div>
 <% end %>
-
