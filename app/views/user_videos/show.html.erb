@@ -13,10 +13,23 @@
  
 <iframe width="425" height="349" src="<%= @u %>" frameborder="0" allowfullscreen>
 </iframe>
-
 <br />
+
 <%= link_to "Rate this", new_stat_path(:user_id => @user_video.user_id, :user_video_id => @user_video.id)  %> 
 
+
+<p>
+<h2>Comments</h2>
+<p><% @user_video.comments.each do |com| %>
+<p><%= com.body %></p>
+<p><%= time_ago_in_words com.created_at %> ago by <%= com.name %></p>
+
+
+<% end %>
+   <%= form_for [@user_video, @user_video.comments.build] do |f| %>
+   <%= f.text_area :body, :size =>'50x10' %>
+   <%= f.submit "Post comment" %>
+<% end %>
 
 <br />
 <%= link_to 'Edit', edit_user_video_path(@user_video) %> |

@@ -26,6 +26,15 @@ MusiciansCommunity::Application.routes.draw do
     resources :stats
   end
 
+
+  resources :user_videos do
+    resources :comments
+   end
+
+  resources :weekly_tunes do
+    resources :comments
+  end
+
   resources :weekly_tunes
   resources :stats
 
