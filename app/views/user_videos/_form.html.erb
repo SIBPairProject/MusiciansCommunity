@@ -27,7 +27,12 @@
 
   <div class="field">
     <%= f.label 'URL' %><br />
-    <%= f.text_area :video_embed %>
+    <%= f.text_field :video_embed %>
+  </div>
+
+  <div class = "field">
+    <%= f.label 'Tune'%><br />
+    <%= f.select :weekly_tune_id, @weekly_tunes %> 
   </div>
   
   <div class="actions">

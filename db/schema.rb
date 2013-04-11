@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130325190917) do
+ActiveRecord::Schema.define(:version => 20130410203751) do
 
   create_table "comments", :force => true do |t|
     t.string   "title"
@@ -27,13 +27,22 @@ ActiveRecord::Schema.define(:version => 20130325190917) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "stats", :force => true do |t|
+    t.string  "quality"
+    t.integer "score"
+    t.integer "user_video_id"
+    t.integer "user_id"
+    t.integer "rater_id"
+  end
+
   create_table "user_videos", :force => true do |t|
     t.string   "title"
     t.string   "video_embed"
     t.text     "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
     t.integer  "user_id"
+    t.integer  "weekly_tune_id"
   end
 
   create_table "users", :force => true do |t|

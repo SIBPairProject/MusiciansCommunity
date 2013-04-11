@@ -1,8 +1,7 @@
 class UserVideosController < ApplicationController
-
-   def index
+ 
+  def index
     @user_videos = current_user.user_videos.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @user_videos }
@@ -13,7 +12,6 @@ class UserVideosController < ApplicationController
   # GET /videos/1.json
   def show
     @user_video = current_user.user_videos.find(params[:id])    
-    # @uri = URI(@user_video.video_embed)
     @vid_id = @user_video.video_embed.split('?v=')[1]
     @u = "http://www.youtube.com/embed/" + @vid_id
 
@@ -27,7 +25,10 @@ class UserVideosController < ApplicationController
   # GET /videos/new.json
   def new
     @user_video = current_user.user_videos.new
-
+    @weekly_tunes = []
+    for tune in WeeklyTune.all do
+      @weekly_tunes.append(tune.title)
+    end 
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @user_video }

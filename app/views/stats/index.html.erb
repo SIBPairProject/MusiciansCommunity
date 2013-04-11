@@ -1,0 +1,12 @@
+
+<h1>My Stats</h1>
+
+<% @stats.each do |stat| %>
+	<div class = "list-item">
+    <p><%= stat.quality %> : <%= stat.score %></p>
+    <p>Rater: <%= stat.rater_id %></p>
+    <p>User_id: <%= stat.user_id %></p>
+    <p>Video: <%= stat.user_video_id %></p>
+    <p><%= link_to 'View', stat %> | <%= link_to 'Edit', edit_stat_path(stat) %> | <%= link_to 'Delete', stat, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+  </div>
+<% end %>

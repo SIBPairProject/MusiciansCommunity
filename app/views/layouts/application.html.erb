@@ -29,6 +29,15 @@
 
 
 <div class="content">
+  <div class="span4">
+    <div class="well">
+      <ul class="nav nav-list">
+        <li><%=  link_to "Tunes", :controller => '/weekly_tunes', :action => 'index' %></li>
+        <li><%=  link_to "MyVideos", :controller => '/user_videos', :action => 'index' %></li>
+        <li><%=  link_to "MyProgress", :controller => '/users', :action => 'show' %></li>
+      </ul>
+    </div>
+  </div>
   <div class="span10">
       <% if notice %>
         <p id="notice"><%= notice %></p>
@@ -40,15 +49,7 @@
       <%= yield %>
   </div>
 
-  <div class="span4">
-    <div class="well">
-      <ul class="nav nav-list">
-        <li><%=  link_to "Tunes", :controller => '/weekly_tunes', :action => 'index' %></li>
-        <li><%=  link_to "MyVideos", :controller => '/user_videos', :action => 'index' %></li>
-        <li><%=  link_to "MyProgress", :controller => '/users', :action => 'show' %></li>
-      </ul>
-    </div>
-  </div>
+
 
 
 </div>
