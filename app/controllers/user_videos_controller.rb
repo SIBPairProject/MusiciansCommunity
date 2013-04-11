@@ -15,7 +15,7 @@ class UserVideosController < ApplicationController
     @user_video = current_user.user_videos.find(params[:id])    
     # @uri = URI(@user_video.video_embed)
     @vid_id = @user_video.video_embed.split('?v=')[1]
-    @u = "http://www.youtube.com/embed/" + @vid_id
+    @u = "http://www.youtube.com/embed/" #+ @vid_id
 
     respond_to do |format|
       format.html # show.html.erb

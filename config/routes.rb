@@ -27,9 +27,9 @@ MusiciansCommunity::Application.routes.draw do
   #   resources :weekly_tunes 
 
 
-  resources :user_videos #do
-  #   resources :comments
-  # end
+  resources :user_videos do
+    resources :comments
+   end
 
   resources :weekly_tunes do
     resources :comments
