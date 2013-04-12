@@ -6,4 +6,9 @@ class CommentsController < ApplicationController
 	@comment.save
 	redirect_to @user_video
   end
+
+  def destroy
+	@comment = Comment.find(params[:id])
+	@comment.destroy
+	end
 end

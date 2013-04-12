@@ -22,8 +22,47 @@
 	padding: 10px 0px;
 }
 
+.no-break{
+	display: inline;
+}
+
+.comment {
+	width: 426px;
+}
 
 .navbar img{ 
 	height: 30px;
 	width:  auto;
+}
+
+.right-side{
+	float: right;
+}
+
+.video {
+	width: 430px;
+	margin: 0 auto;
+	padding: 40px 0;
+}
+
+.less-space{
+	line-height: 1em;
+}
+
+.less-space a{
+	color: black;
+}
+
+.comment-box{
+	height: 3em;
+	width: 416px;
+}
+
+.video-show{
+	padding: 30px 
+}
+.this-week{
+	padding: 20px;
+	overflow: hidden;
+	background-color: #eeeeee;
 }

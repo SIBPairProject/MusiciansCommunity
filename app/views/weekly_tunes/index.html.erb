@@ -1,33 +1,38 @@
-<h1>Listing weekly_tunes</h1>
+<h1>Tunes</h1>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Genre</th>
-    <th>Artist</th>
-    <th>Date from</th>
-    <th>Date to</th>
-    <th>Description</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
 
-<% @weekly_tunes.each do |weekly_tune| %>
-  <tr>
-    <td><%= weekly_tune.title %></td>
-    <td><%= weekly_tune.genre %></td>
-    <td><%= weekly_tune.artist %></td>
-    <td><%= weekly_tune.date_from %></td>
-    <td><%= weekly_tune.date_to %></td>
-    <td><%= weekly_tune.description %></td>
-    <td><%= link_to 'Show', weekly_tune %></td>
-    <td><%= link_to 'Edit', edit_weekly_tune_path(weekly_tune) %></td>
-    <td><%= link_to 'Destroy', weekly_tune, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+<% @weekly_tunes.reverse.each do |weekly_tune| %>
+    <% if weekly_tune == @weekly_tunes.last %>
+        <div class = 'this-week'>
+            <h2 class = "no-break less-space"><%= link_to weekly_tune.title, 
+                weekly_tune_path(weekly_tune) %></h2>
+            <h6 class = "no-break">by <%= weekly_tune.artist %></h6>
+            <div class ="right-side">
+                <h6>End Date: <%= weekly_tune.date_to %></h4>
+            </div>
+            <div class= 'video'>
+                <iframe width="425" height="349" src="<%= @u %>" frameborder="0" allowfullscreen>
+                </iframe>
+            </div>
+            <!-- <td><%= link_to 'Edit', edit_weekly_tune_path(weekly_tune) %></td> -->
+            <!-- <td><%= link_to 'Destroy', weekly_tune, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+        </div>
+    <% else %>
+        <div class = 'list-item less-space'>
+            <h2 class = "no-break less-space"><%= link_to weekly_tune.title, 
+                weekly_tune_path(weekly_tune) %></h2>
+            <h6 class = "no-break less-space">by <%= weekly_tune.artist %></h6>
+            
+            <div class ="right-side">
+                <h6 class = "no-break less-space">End Date: <%= weekly_tune.date_to %></h4>
+                <h4 class = "no-break less-space">(<%= link_to "See Video",weekly_tune.description %>)</h4>
+            </div>
+<!--             <td><%= link_to 'Edit', edit_weekly_tune_path(weekly_tune) %></td>
+ -->            <!-- <td><%= link_to 'Destroy', weekly_tune, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+        </div>
+    <% end %>
 <% end %>
-</table>
 
 <br />
 
-<%= link_to 'New Weekly tune', new_weekly_tune_path %>
+<%= link_to 'New Weekly Tune', new_weekly_tune_path %>

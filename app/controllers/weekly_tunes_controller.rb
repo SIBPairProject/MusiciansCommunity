@@ -4,7 +4,8 @@ class WeeklyTunesController < ApplicationController
   # GET /weekly_tunes.json
   def index
     @weekly_tunes = WeeklyTune.all
-
+    @vid_id = @weekly_tunes.last.description.split('?v=')[1]
+    @u = "http://www.youtube.com/embed/" + @vid_id
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @weekly_tunes }
@@ -13,8 +14,9 @@ class WeeklyTunesController < ApplicationController
 
   def show
     @weekly_tune = WeeklyTune.find(params[:id])
-    @uri = URI(@weekly_tune.description)
-    @u = "http://www.youtube.com/embed" + @uri.path.to_s
+    @vid_id = @weekly_tune.description.split('?v=')[1]
+    @u = "http://www.youtube.com/embed/" + @vid_id
+    @submissions = @weekly_tune.user_videos.all
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @weekly_tune }

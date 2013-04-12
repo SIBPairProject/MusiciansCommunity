@@ -32,7 +32,7 @@
 
   <div class = "field">
     <%= f.label 'Tune'%><br />
-    <%= f.select :weekly_tune_id, @weekly_tunes %> 
+    <%= f.select :weekly_tune_id, options_from_collection_for_select(WeeklyTune.all, :id, :title)%>
   </div>
   
   <div class="actions">

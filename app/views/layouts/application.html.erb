@@ -12,7 +12,7 @@
 <div class="navbar">
   <div class="navbar-inner">
     <ul class="nav">
-      <li><%= link_to 'TuneUp', :controller => '/weekly_tunes', :action => 'index'%></li>
+      <li><%= link_to 'TuneUp', :controller => '/weekly_tunes', :action => 'index', :class => 'logo'%></li>
     </ul>
 
     <ul class="nav pull-right">
@@ -29,9 +29,9 @@
 
 
 <div class="content">
-  <div class="span4">
+  <div class="span2">
     <div class="well">
-      <ul class="nav nav-list">
+      <ul class="nav nav-list no-break">
         <li><%=  link_to "Tunes", :controller => '/weekly_tunes', :action => 'index' %></li>
         <li><%=  link_to "MyVideos", :controller => '/user_videos', :action => 'index' %></li>
         <li><%=  link_to "MyProgress", :controller => '/users', :action => 'show' %></li>

@@ -1,37 +1,31 @@
-<p id="notice"><%= notice %></p>
+<div class = 'this-week'>
+  <div class= 'video-show right-side'>
+      <iframe width="425" height="349" src="<%= @u %>" frameborder="0" allowfullscreen>
+      </iframe>
+  </div>
+  <h2 class = "less-space"><%=@weekly_tune.title %></h2>
+  <h6 >by <%= @weekly_tune.artist %></h6>
+  <div>
+      <h6>End Date: <%= @weekly_tune.date_to %></h4>
+  </div>
+  <!-- <td><%= link_to 'Edit', edit_weekly_tune_path(@weekly_tune) %></td> -->
+  <!-- <td><%= link_to 'Destroy', @weekly_tune, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+</div>  
 
-<p>
-  <b>Title:</b>
-  <%= @weekly_tune.title %>
-</p>
-
-<p>
-  <b>Genre:</b>
-  <%= @weekly_tune.genre %>
-</p>
-
-<p>
-  <b>Artist:</b>
-  <%= @weekly_tune.artist %>
-</p>
-
-<p>
-  <b>Date from:</b>
-  <%= @weekly_tune.date_from %>
-</p>
-
-<p>
-  <b>Date to:</b>
-  <%= @weekly_tune.date_to %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= @u %>
-</p>
-
-<iframe width="425" height="349" src="<%= @u %>" frameborder="0" allowfullscreen>
-</iframe>
-
+<!-- 
 <%= link_to 'Edit', edit_weekly_tune_path(@weekly_tune) %> |
-<%= link_to 'Back', weekly_tunes_path %>
+<%= link_to 'Back', weekly_tunes_path %> -->
+
+
+
+<h1> Submissions </h1>
+            
+
+<% @submissions.each do |submission| %>
+  
+<div class = 'list-item less-space'>
+  <h2 class = "no-break less-space"><%= link_to submission.title, 
+      user_video_path(submission) %></h2>
+  <h6 class = "no-break less-space">by <%= submission.user.name %></h6>
+</div>
+<% end %>

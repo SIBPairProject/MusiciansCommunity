@@ -1,36 +1,36 @@
-<p id="notice"><%= notice %></p>
+<div class = 'no-break'>
+  <h2 class = 'no-break'><%= @user_video.title %> </h2> by <h4 class = 'no-break'><%= @user_video.user.name %> </h4>
+</div><br />
+<div class= 'video'>
+	<iframe width="425" height="349" src="<%= @u %>" frameborder="0" allowfullscreen>
+	</iframe>
 
-<p>
-  <b>Title:</b>
-  <%= @user_video.title %>
-</p>
-
+<br />
 <p>
   <b>Description:</b>
   <%= @user_video.description %>
 </p>
-
- 
-<iframe width="425" height="349" src="<%= @u %>" frameborder="0" allowfullscreen>
-</iframe>
 <br />
 
-<%= link_to "Rate this", new_stat_path(:user_id => @user_video.user_id, :user_video_id => @user_video.id)  %> 
+<%= link_to "rate this entry", new_stat_path(:user_id => @user_video.user_id, :user_video_id => @user_video.id)  %> 
+<br />
 
 
-<p>
 <h2>Comments</h2>
-<p><% @user_video.comments.each do |com| %>
-<p><%= com.body %></p>
-<p><%= time_ago_in_words com.created_at %> ago by <%= com.name %></p>
-
-
-<% end %>
-   <%= form_for [@user_video, @user_video.comments.build] do |f| %>
-   <%= f.text_area :body, :size =>'50x10' %>
+<%= form_for [@user_video, @user_video.comments.build] do |f| %>
+   <%= f.text_area :body, :class => 'comment-box' %> <br />
    <%= f.submit "Post comment" %>
 <% end %>
 
+<% @user_video.comments.each do |com| %>
+	<div class = "list-item comment">
+		<p><%= com.body %></p>
+		<p><%= time_ago_in_words com.created_at if com.created_at  %> ago by <%= com.name %></p>
+<!-- 		<%= link_to 'Delete', com, method: :destroy, data: { confirm: 'Are you sure?' } %></p> -->
+	</div>
+<% end %> 
+<br />
 <br />
 <%= link_to 'Edit', edit_user_video_path(@user_video) %> |
 <%= link_to 'Back', user_videos_path %>
+</div>
