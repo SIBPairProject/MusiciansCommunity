@@ -27,8 +27,8 @@
                 <h6 class = "no-break less-space">End Date: <%= weekly_tune.date_to %></h4>
                 <h4 class = "no-break less-space">(<%= link_to "See Video",weekly_tune.description %>)</h4>
             </div>
-<!--             <td><%= link_to 'Edit', edit_weekly_tune_path(weekly_tune) %></td>
- -->            <!-- <td><%= link_to 'Destroy', weekly_tune, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+    <td><%= link_to 'Edit', edit_weekly_tune_path(weekly_tune) %></td>
+    <td><%= link_to 'Destroy', weekly_tune, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </div>
     <% end %>
 <% end %>

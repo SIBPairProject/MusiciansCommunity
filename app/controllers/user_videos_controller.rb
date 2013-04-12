@@ -11,7 +11,7 @@ class UserVideosController < ApplicationController
   # GET /videos/1
   # GET /videos/1.json
   def show
-    @user_video = current_user.user_videos.find(params[:id])    
+    @user_video = UserVideo.find(params[:id])    
     @vid_id = @user_video.video_embed.split('?v=')[1]
     @u = "http://www.youtube.com/embed/" + @vid_id
 
@@ -34,7 +34,7 @@ class UserVideosController < ApplicationController
 
   # GET /videos/1/edit
   def edit
-    @user_video = current_user.user_videos.find(params[:id])
+    @user_video = UserVideo.find(params[:id])
   end
 
   # POST /videos
@@ -56,7 +56,7 @@ class UserVideosController < ApplicationController
   # PUT /videos/1
   # PUT /videos/1.json
   def update
-    @user_video = current_user.user_videos.find(params[:id])
+    @user_video = UserVideo.find(params[:id])
 
     respond_to do |format|
       if @user_video.update_attributes(params[:user_video])
@@ -72,7 +72,7 @@ class UserVideosController < ApplicationController
   # DELETE /videos/1
   # DELETE /videos/1.json
   def destroy
-    @user_video = current_user.user_videos.find(params[:id])
+    @user_video = UserVideo.find(params[:id])
     @user_video.destroy
 
     respond_to do |format|
